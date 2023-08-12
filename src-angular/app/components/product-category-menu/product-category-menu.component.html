@@ -1,0 +1,22 @@
+<div class="menu-sidebar-content js-scrollbar1">
+    <nav class="navbar-sidebar">
+        <ul class="list-unstyled navbar-list">
+
+            <li *ngFor="let tempProductCategory of productCategories">
+                <h6 *ngIf="tempProductCategory.size > 0" style="text-align: left; color: #ff7044;">
+                    <span *ngIf="tempProductCategory.type=='SUB'">Subject Wise</span>
+                    <span *ngIf="tempProductCategory.type=='SEM'">Semester Wise</span>
+                    <span *ngIf="tempProductCategory.type=='DEP'">Department Wise</span>
+                </h6>
+                    <a routerLink="/category/{{ tempProductCategory.id }}" routerLinkActive="active-link">
+                        {{ tempProductCategory.categoryName }}
+                    </a>
+
+            </li>
+            <li *ngFor="let tempProductCategory of productCategories">
+                <h6 *ngIf="tempProductCategory.size > 0">
+                </h6>
+            </li>
+        </ul>
+    </nav>
+</div>

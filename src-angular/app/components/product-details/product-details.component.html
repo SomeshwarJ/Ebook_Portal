@@ -1,0 +1,16 @@
+<div class="detail-section">
+    <div class="container-fluid">
+
+        <img src="{{ product.imageUrl }}" class="detail-img">
+
+        <h3>{{ product.name }}</h3>
+        <div class="price" style="color:#ff7044;">{{ product.unitPrice | currency:'&#8377;' }}</div>
+        <button style="background:#ff7044;" *ngIf="product.unitPrice>0 && product.ordered == 0" (click)="addToCart()" class="btn btn-primary btn-sm">Add to cart</button>
+        <a style="background:#ff7044;" *ngIf="product.unitPrice==0 || product.ordered == 1" href="assets/books/{{ product.name }}.pdf" target="_blank" class="btn btn-primary btn-sm">Click to Read</a>
+        <hr>
+        <h4>Description</h4>
+        <p>{{ product.description }}</p>
+
+        <a routerLink="/products" style="color:#ff7044;" class="mt-5">Back to Product List</a>
+    </div>
+</div>

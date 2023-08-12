@@ -1,0 +1,163 @@
+<div class="main-content page-m">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <form [formGroup]="MembersPageComponent" (ngSubmit)="onSubmit()">
+
+                <!-- customer form group -->
+                <div formGroupName="customer" class="form-area">
+                    <h3>Add Book</h3>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Book Name</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="firstName" type="text">
+
+                                <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger mt-1">
+
+                                    <div *ngIf="firstName.errors.required || firstName.errors.notOnlyWhitespace">
+                                        Book Name is required
+                                    </div>
+
+                                    <div *ngIf="firstName.errors.minlength">
+                                        Book Name must be at least 10 characters long
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Description</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="lastName" type="text">
+
+                                <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger mt-1">
+
+                                    <div *ngIf="lastName.errors.required || lastName.errors.notOnlyWhitespace">
+                                        Description is required
+                                    </div>
+
+                                    <div *ngIf="lastName.errors.minlength">
+                                        Description must be at least 20 characters long
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Image url</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="imageurl" type="text">
+
+                                <div *ngIf="imageurl.invalid && (imageurl.dirty || imageurl.touched)" class="alert alert-danger mt-1">
+
+                                    <div *ngIf="imageurl.errors.required || imageurl.errors.notOnlyWhitespace">
+                                        Image url is required
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Subject</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="subject">
+                                    <option *ngFor="let country of subjects" [ngValue]="country.id">
+                                        {{ country.categoryName }}
+                                    </option>
+                                </select>
+
+                                <div *ngIf="subject.invalid && (subject.dirty || subject.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="subject.errors.required">
+                                        Subject is required
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Semester</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="semester">
+                                    <option *ngFor="let country of semesters" [ngValue]="country.id">
+                                        {{ country.categoryName }}
+                                    </option>
+                                </select>
+
+                                <div *ngIf="semester.invalid && (semester.dirty || semester.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="semester.errors.required">
+                                        Semester is required
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Department</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <select formControlName="department">
+                                    <option *ngFor="let country of departments" [ngValue]="country.id">
+                                        {{ country.categoryName }}
+                                    </option>
+                                </select>
+
+                                <div *ngIf="department.invalid && (department.dirty || department.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="department.errors.required">
+                                        Department is required
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"> <label>Price</label></div>
+                        <div class="col-md-9">
+                            <div class="input-space">
+                                <input formControlName="price" type="text">
+
+                                <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger mt-1">
+                                    <div *ngIf="price.errors.required">
+                                        Price is required
+                                    </div>
+                                    <div *ngIf="price.errors.pattern">
+                                        Price must be 2 digits long
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div align="center" class="alert alert-warning col-md-12" role="alert">
+                    <h6>before submit, upload pdf in specified folder assets/books, where pdf name is same as book name</h6>
+                </div>
+
+                <!-- submit button-->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
